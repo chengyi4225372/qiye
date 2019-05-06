@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{notempty name="title"}
+<title>{$title}</title>
+{else /}
+<title>{:sysconf('urlname')}</title>
+{/notempty}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{notempty name="keywords"}
+<meta name="keywords" content="{$keywords}" >
+{else /}
+<meta name="keywords" content="{:sysconf('keywords')}" >
+{/notempty}
+{notempty name="description"}
+<meta name="description" content="{$description}">
+{else /}
+<meta name="description" content="{:sysconf('description')}">
+{/notempty}
+<link rel="shortcut icon" href="{:sysconf('icon')}" ></link>
+<!-- yshsports.com Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<link rel="stylesheet" href="/static/index/css/foot.css">
+<link rel="stylesheet" href="/static/index/css/style.css">
+    
+<script type="text/javascript" src="/static/index/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/index/js/jquery.SuperSlide.2.1.1.js"></script>
+
+
+<!-- 头部 -->
+	<div class="head">
+		<div class="top">
+			<div class="main">
+				<p>
+					寻奇者团建主营：
+                                        {volist name="lists" id="list" key="k"}
+                                        {switch $k}
+                                        {case 3}<a href="{:url('index/tjone')}">{$list.name}</a>、{/case}
+                                        {case 4}<a href="{:url('index/tjtwo')}">{$list.name}</a>、{/case}
+                                        {case 5}<a href="{:url('index/tjthree')}">{$list.name}</a>、{/case}
+                                        {case 6}<a href="{:url('index/tjfour')}">{$list.name}</a>、{/case}
+                                        {/switch}
+                                        {/volist}
+                                    
+				</p>
+				<ul>
+					<li>
+						<a href="javascript:;">
+							微信
+						</a>
+						<div>
+							<img src="{:sysconf('wximg')}" alt="寻奇者团建二维码">
+						</div>
+					</li>
+					<li>
+						<a href="{:sysconf('wb')}">微博</a>
+					</li>
+					<li>
+						<a href="#">手机站</a>
+					</li>
+					<li>
+						<a href="{:sysconf('mobile')}">{:sysconf('mobile')}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="box">
+			<div class="main">
+				<div class="logo">
+					<a href="{:url('index/index')}">
+						<img src="{:sysconf('logo')}" alt="寻奇者团建">
+					</a>
+				</div>
+				<div class="tel">
+					<h5>24小时服务热线：</h5>
+					<img src="{:sysconf('mobileimg')}" alt="寻奇者团建电话">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 导航 -->
+	<div class="nav">
+            <div class="main">
+                {if isset($is_have)}
+			<div class="side" onMouseOut="hidemenu()" onmouseover="showmenu()">
+				<div class="title">
+					<h3>人气产品</h3>
+					<div class="flip">
+						<h3>人气产品</h3>
+					</div>
+				</div>
+				<div class="box" id="op">
+                                    {volist name="lists" id="list" key="k"}
+                                    {if condition="($k gt 2) and ($k lt 7)"}
+                                    {switch $k}
+                                    {case 3}
+					<div class="op" onMouseOut="hidediv()" onmouseover="showdiv()">
+						<h4>
+							{$list.name}
+						</h4>
+                                            {volist name="good1s" id="good1" key="k2"}
+                                    {if condition="$k2 eq 1"}
+						<ul id="ulshow">
+                        <li><a href="{:url('index/tjdetail')}?id={$good1.id}">{$good1.name}</a></li>
+						</ul>
+                                    {/if}
+                                    {/volist}
+					</div>
+                                    {/case}
+                                    {case 4}
+					<div class="op" onMouseOut="hidediv2()" onmouseover="showdiv2()">
+						<h4>
+							{$list.name}
+						</h4>
+                                            {volist name="good2s" id="good2" key="k2"}
+                                    {if condition="$k2 eq 1"}
+						<ul id="ulshow2">
+                        <li><a href="{:url('index/tjdetail')}?id={$good2.id}">{$good2.name}</a></li>
+						</ul>
+                                    {/if}
+                                    {/volist}
+					</div>
+                                    {/case}
+                                    {case 5}
+					<div class="op" onMouseOut="hidediv3()" onmouseover="showdiv3()">
+						<h4>
+							{$list.name}
+						</h4>
+                                            {volist name="good3s" id="good3" key="k2"}
+                                    {if condition="$k2 eq 1"}
+						<ul id="ulshow3">
+                        <li><a href="{:url('index/tjdetail')}?id={$good3.id}">{$good3.name}</a></li>
+						</ul>
+                                    {/if}
+                                    {/volist}
+					</div>
+                                    {/case}
+                                    {case 6}
+					<div class="op" onMouseOut="hidediv4()" onmouseover="showdiv4()">
+						<h4>
+							{$list.name}
+						</h4>
+                                            {volist name="good4s" id="good4" key="k2"}
+                                    {if condition="$k2 eq 1"}
+						<ul id="ulshow4">
+                        <li><a href="{:url('index/tjdetail')}?id={$good4.id}">{$good4.name}</a></li>
+						</ul>
+                                    {/if}
+                                    {/volist}
+					</div>
+                                    {/case}
+                                    {/switch}
+                                    {/if}
+                                    {/volist}
+<!--					<div class="op" onMouseOut="hidediv2()" onmouseover="showdiv2()">
+						<h4>企业家庭日</h4>
+                                     {volist name="good2s" id="good2" key="k"}
+                                    {if condition="$k eq 1"}
+						<ul id="ulshow2">
+							<li><a href="{:url('index/tjdetail')}?id={$good1.id}">{$good2.name}</a></li>
+						</ul>
+                                    {/if}
+                                    {/volist}
+					</div>                                    -->
+					<div class="more">
+						<a rel="nofollow" id="more" href="{:url('index/dingzhi')}">立即定制</a>
+					</div>
+					<div class="text" id="text">
+						<p>
+							改变 - 从此刻开始！
+						</p>
+						<p>
+							我们带你走进北极星的体验式培训！
+						</p>
+					</div>
+				</div>
+			</div>
+                {/if}
+			<div class="options">
+				<ul>
+                                    {volist name="lists" id="list" key="k"}
+					<li>
+                                            {switch $k}
+						{case 1}<a href="{:url('index/index')}">{/case}
+                                                {case 2}<a href="{:url('index/comintroduce')}">{/case}
+                                                {case 3}<a href="{:url('index/tjone')}">{/case}
+                                                {case 4}<a href="{:url('index/tjtwo')}">{/case}
+                                                {case 5}<a href="{:url('index/tjthree')}">{/case}
+                                                {case 6}<a href="{:url('index/tjfour')}">{/case}
+                                                {case 7}<a href="{:url('index/fwteam')}">{/case}
+                                                {case 8}<a href="{:url('index/anli')}">{/case}
+                                                {case 9}<a href="{:url('index/news')}">{/case}
+                                                {case 10}<a href="{:url('index/contact')}">{/case}
+                                            {/switch}
+                                            {if condition="$k eq 9"}
+                                            {else /}
+							<div>
+								<h3>{$list.name}</h3>
+								<p>
+									{$list.ename}
+								</p>
+							</div>
+                                            {/if}
+						</a>
+					</li>
+                                    {/volist}                                    
+				</ul>
+			</div>
+		</div>
+	</div>
+    
+
+<script type="text/javascript"> 
+function  showmenu(){ 
+
+document.getElementById("op").style.display='block'; 
+
+} 
+
+function  showdiv(){ 
+
+document.getElementById("ulshow").style.display='block'; 
+
+} 
+function  showdiv2(){ 
+
+document.getElementById("ulshow2").style.display='block'; 
+
+} 
+function  showdiv3(){ 
+
+document.getElementById("ulshow3").style.display='block'; 
+
+} 
+function hidemenu(){ 
+
+document.getElementById("op").style.display='none'; 
+} 
+
+function hidediv(){ 
+
+document.getElementById("ulshow").style.display='none'; 
+} 
+function hidediv2(){ 
+
+document.getElementById("ulshow2").style.display='none'; 
+
+} 
+function hidediv3(){ 
+
+document.getElementById("ulshow3").style.display='none'; 
+
+} 
+
+</script>

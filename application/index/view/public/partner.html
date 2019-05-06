@@ -1,0 +1,26 @@
+<div class="part6">
+			<div class="partners">
+				<div class="main">
+						<div class="title">
+						<div class="bg">
+							<div class="text">
+								<h3>合作伙伴</h3>
+								<p>
+									我们必须是合作共赢的伙伴,也一定会是合作共赢的伙伴！
+								</p>
+							</div>
+							<img src="/static/index/images/icon07.png" alt="">
+						</div>
+					</div>
+					<ul>
+                                            {volist name="partners" id="partner"}
+                                                  <li>
+							
+								<img src="{$partner.img}" alt="{$partner.title}">
+							
+						</li>
+                                                {/volist}
+					</ul>
+				</div>
+			</div>
+		</div>
